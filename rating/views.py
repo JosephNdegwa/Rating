@@ -31,3 +31,19 @@ def search_results(request):
     else:
         message = "No Results"
         return render(request, 'search.html', {"message":message})
+def add_project(request):
+    if request.method == 'POST':
+        form = AddProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = Project(title=form.cleaned_data.get('title'),
+                              photo=form.cleaned_data.get('photo'),
+                              description=form.cleaned_data.get('description'),
+                              link=form.cleaned_data.get('link'),
+                              user=request.user)
+            project.save()
+            return redirect('homepage')
+        else:
+            return render(request, 'add-project.html', {'form': form})
+    else:
+        form = AddProjectForm()
+        return render(request, 'add-project.html', {'form': form})
