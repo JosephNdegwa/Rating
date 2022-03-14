@@ -47,3 +47,20 @@ def add_project(request):
     else:
         form = AddProjectForm()
         return render(request, 'add-project.html', {'form': form})
+
+def add_rating(request, project):
+    rated_project = Project.objects.get(id=project)
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rating = Rating(design=form.cleaned_data.get('design'),
+                            usability=form.cleaned_data.get('usability'),
+                            content=form.cleaned_data.get('content'),
+                            project=rated_project)
+            rating.save()
+            return redirect('homepage')
+        else:
+            return render(request, 'rate-project.html', {'form': form})
+    else:
+        form = RatingForm()
+        return render(request, 'rate-project.html', {'form': form})
