@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load rating_extras %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+      <div class="row">
+          <div class="col-1"></div>
+          <div class="col-4">
+            <img id="profile-image" src="{{ project.photo.url }}">
+          </div>
+          <div class="col-4">
+            <h1>Project Information</h1>
+            <h5 class="mt-4">Name: {{ project.title }}</h5>
+            {% if project.rating %}
+            <h5 class="mt-4">Overall Score: {{ project.rating | avg }}</h5>
+            <ul>
+              <li>Design: {{ project.rating.design }}</li>
+              <li>Usability: {{ project.rating.usability }}</li>
+              <li>Content: {{ project.rating.content }}</li>
+            </ul>
+            {% endif %}
+            <h5>Description: {{ project.description }}</h5>
+            <div class="mt-5">
+                <a href="{{ project.link }}" class="card-text mr-5">Check It Out</a>
+                <a href="{% url 'add-rating' project=project.id %}" class="btn btn-primary">Rate Project</a>
+            </div>
+          </div>
+          <div class="col-3"></div>
+      </div>
+    </div>
+{% endblock %}
