@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+      <div class="row">
+          <div class="col-1"></div>
+          <div class="col-4">
+            {% if user.profile.profile_photo %}
+              <img id="profile-image" src="{{ user.profile.profile_photo.url }}">
+            {% else %}
+              <svg id="profile-image-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            {% endif %}
+          </div>
+          <div class="col-4">
+            <h1>User Information</h1>
+            <h5 class="mt-4">Username: {{ user.username }}</h5>
+            <h5>Email: {{ user.email }}</h5>
+            {% if user.profile.bio %}
+              <h5>Bio: {{ user.profile.bio }}</h5>
+            {% else %}
+              <h5>Bio: N/A</h5>
+            {% endif %}
+            <h5>Projects</h5>
+            <ul>
+              {% for project in projects %}
+                <li><a href="{{ project.link }}">{{ project.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col-3"></div>
+      </div>
+    </div>
+{% endblock %}
