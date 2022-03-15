@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load rating_extras %}
+
 
 {% block content %}
     {% if not user.is_authenticated %}
@@ -29,7 +29,7 @@
                             <h5 class="card-title">{{ project.title }}</h5>
                             <p class="card-text">{{ project.description }}</p>
                             {% if project.rating %}
-                            <p class="card-text">Rating: {{  project.rating | avg }}</p>
+                            <p class="card-text">Rating: </p>
                             {% else %}
                             <p class="card-text">Rating: N/A</p>
                             {% endif %}
