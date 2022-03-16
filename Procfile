@@ -1,1 +1,1 @@
-web: gunicorn rating.wsgi --log-file -
+web: gunicorn Rating.wsgi --log-file -
