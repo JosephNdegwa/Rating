@@ -16,7 +16,7 @@ Navigate to `...to deploy once done` and serve on the web.
 * Visual Studio
 
 # To-do
-* Add more functions to the admin site
+* Add more functionality like accessing app info through API
 
 # Known Bugs
 * Currently there are no known bugs but in case you come accross on please reach out to the owner of this project.
