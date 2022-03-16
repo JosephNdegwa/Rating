@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'awards.wsgi.application'
+WSGI_APPLICATION = 'rating.wsgi.application'
 
 
 # Database
