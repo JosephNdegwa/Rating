@@ -1,6 +1,6 @@
 # Rating
 
-A django web application that allows users to post their projects and other users can rate them according to description, appearance and functionality.
+A django web application that allows users to post their projects and other users can rate them according to design, usability and content.
 
 ## Author
 Joseph Ndegwa
