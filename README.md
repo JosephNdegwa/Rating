@@ -6,7 +6,7 @@ A django web application that allows users to post their projects and other user
 Joseph Ndegwa
 
 ## Setup and installation
-Navigate to `...to deploy once done` and serve on the web.
+Navigate to `heroku pg:push tribune DATABASE_URL --app mtr1bune` and serve on the web.
 
 ## Technologies
 * Python
